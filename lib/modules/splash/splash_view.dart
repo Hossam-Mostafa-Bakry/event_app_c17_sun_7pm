@@ -14,14 +14,25 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, PagesRouteName.signIn);
+      Navigator.pushReplacementNamed(context, PagesRouteName.onBoarding);
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
-      body: Center(child: Assets.images.logoImg.image(width: 200, height: 200)),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(left: 80.0, right: 80.0, bottom: 64),
+        child: Assets.images.luncherLogo.image(color: theme.primaryColor),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 33),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Assets.images.eventlyLogo.image()],
+        ),
+      ),
     );
   }
 }

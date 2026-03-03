@@ -19,27 +19,36 @@ class CustomElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        elevation: 0,
-        backgroundColor: backgroundColor ?? ColorPallete.primaryColor,
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        shape: RoundedRectangleBorder(
-          side: BorderSide(color: borderColor ?? ColorPallete.primaryColor),
-          borderRadius: BorderRadius.circular(16),
-        ),
-      ),
-      child:
-          customChild ??
-          Text(
-            buttonText ?? "",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-              color: Colors.white,
+    final theme = Theme.of(context);
+    return Row(
+      children: [
+        Expanded(
+          child: ElevatedButton(
+            onPressed: onPressed,
+            style: ElevatedButton.styleFrom(
+              elevation: 0,
+              backgroundColor: backgroundColor ?? theme.primaryColor,
+              padding: const EdgeInsets.symmetric(vertical: 9),
+              shape: RoundedRectangleBorder(
+                side: BorderSide(
+                  color: borderColor ?? ColorPallete.primaryColor,
+                ),
+                borderRadius: BorderRadius.circular(16),
+              ),
             ),
+            child:
+                customChild ??
+                Text(
+                  buttonText ?? "",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
+                ),
           ),
+        ),
+      ],
     );
   }
 }

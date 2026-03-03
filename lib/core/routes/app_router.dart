@@ -1,7 +1,10 @@
 import 'package:event_app_c17_mon_7pm/core/routes/pages_route_name.dart';
+import 'package:event_app_c17_mon_7pm/modules/add_event/add_event_view.dart';
 import 'package:event_app_c17_mon_7pm/modules/authentication/forget_password/forget_password_view.dart';
 import 'package:event_app_c17_mon_7pm/modules/authentication/sign_in/sign_in_view.dart';
 import 'package:event_app_c17_mon_7pm/modules/authentication/sign_up/sign_up_view.dart';
+import 'package:event_app_c17_mon_7pm/modules/layout/layout_page.dart';
+import 'package:event_app_c17_mon_7pm/modules/on_boarding/on_boarding_view.dart';
 import 'package:event_app_c17_mon_7pm/modules/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +32,24 @@ abstract class AppRouter {
       case PagesRouteName.forgetPassword:
         return MaterialPageRoute(
           builder: (context) => const ForgetPasswordView(),
+          settings: settings,
+        );
+
+      case PagesRouteName.onBoarding:
+        return MaterialPageRoute(
+          builder: (context) => const OnBoardingView(),
+          settings: settings,
+        );
+
+      case PagesRouteName.layout:
+        return MaterialPageRoute(
+          builder: (context) => const LayoutPage(),
+          settings: settings,
+        );
+
+      case PagesRouteName.addEvent:
+        return MaterialPageRoute(
+          builder: (context) => const AddEventView(),
           settings: settings,
         );
 
